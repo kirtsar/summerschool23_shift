@@ -1,0 +1,88 @@
+\documentclass[10pt, aspectratio=169, handout]{beamer}
+
+\usetheme{Boadilla}
+
+% encoding & language stuff
+\usepackage[utf8]{inputenc}
+\usepackage[T1, T2A]{fontenc}
+\usepackage[english, russian]{babel}
+\selectlanguage{russian}
+
+\usepackage{appendixnumberbeamer}
+\graphicspath{{./images/}}
+
+% math stuff
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\setbeamerfont{footnote}{size=\tiny}
+
+% bibliography stuff
+\usepackage[style=authortitle-comp,backend=bibtex]{biblatex}
+\addbibresource{biblio.bib}
+
+% ------------- Creating a new block template ----------
+% theorem block 
+\makeatletter
+\def\th@newblock{%
+  \normalfont 
+  \def\inserttheoremblockenv{theoremblock}}
+\theoremstyle{newblock}
+\newtheorem{Thm}[theorem]{Теорема}
+\makeatother
+
+% lemma block 
+\makeatletter
+\def\th@newblock{%
+  \normalfont 
+  \def\inserttheoremblockenv{lemmablock}}
+\theoremstyle{newblock}
+\newtheorem{Lem}[theorem]{Лемма}
+\makeatother
+
+% example block 
+\makeatletter
+\def\th@newblock{%
+  \normalfont 
+  \def\inserttheoremblockenv{exampleblock}}
+\theoremstyle{newblock}
+\newtheorem{Def}[theorem]{Определение}
+\makeatother
+
+
+
+
+
+%%%%%%%%%%%%% ADDITIONAL COMMANDS %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Содержание}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+\input{titlepage}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Содержание}
+    \setbeamertemplate{section in toc}[sections numbered]
+    \tableofcontents%[hideallsubsections]
+\end{frame}
+  
+\input{pres.source.tex}
+  
+\begin{frame}[allowframebreaks]{Библиография}
+    \printbibliography
+\end{frame}
+
+\end{document}
