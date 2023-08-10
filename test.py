@@ -46,8 +46,8 @@ dict_cycles.update((x, y) for x, y in dict_cycles.items())
 
 
 s = sum(f_exp_cycles)
-f_exp_cycles = [(i / s) * num_of_perms for i in f_exp_cycles]
-f_obs_cycles = [(i / s) * num_of_perms for i in f_obs_cycles]
+f_exp_cycles = [(i / s) for i in f_exp_cycles]
+f_obs_cycles = [(i / s) for i in f_obs_cycles]
 print(f_exp_cycles)
 print(f_obs_cycles)
 
